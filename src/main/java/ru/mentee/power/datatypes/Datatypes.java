@@ -8,8 +8,9 @@ public class Datatypes {
         long longVar = 100000L;
         short shortVar = 1000;
         byte byteVar = 100;
-        boolean boolVar = true;
         char charVar = 'A';
+        boolean boolVar = true;
+
 
         String str1 = "Привет";
 
