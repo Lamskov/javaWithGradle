@@ -1,4 +1,4 @@
-package ru.mentee.power.mp19;
+package ru.mentee.power.variables;
 
 public class ConstantsAndScope {
 
