@@ -20,8 +20,6 @@ public class Driver {
             System.out.println("Несовершеннолетний. Вы пока не можете арендовать авто!");
         }
 
- /*       String status = (ageDriver >= 18) ? "Совершеннолетний. Вы можете арендовать авто!" : "Несовершеннолетний. Вы пока не можете арендовать авто!";
-        System.out.println(status);*/
         scanner.close();
     }
 }
