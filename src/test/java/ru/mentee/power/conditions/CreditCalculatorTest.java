@@ -1,6 +1,5 @@
 package ru.mentee.power.conditions;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +11,26 @@ class CreditCalculatorTest {
     private CreditCalculator calculator;
     private static final double DELTA = 0.01; // Допустимая погрешность для сравнения чисел с плавающей точкой
 
-    @BeforeEach
-    void setUp() {
-        calculator = new CreditCalculator();
+
+    void calculateMonthlyPayment_shouldApplyCorrectBaseRateForCreditType(
+            String creditType,
+            double expectedBaseRate,
+            double expectedPayment
+    ) {
+        // Given
+        double amount = creditType.equals("Потребительский") ? 100_000 : 1_000_000;
+        int term = 12;
+        int creditScore = 600; // нейтральный рейтинг
+
+        // When
+        double result = calculator.calculateMonthlyPayment(amount, term, creditType, creditScore);
+
+        // Then
+        assertThat(result)
+                .as("Проверка базовой ставки для %s: должна быть %.1f%%", creditType, expectedBaseRate)
+                .isCloseTo(expectedPayment, within(0.01));
     }
+
 
     @Test
     @DisplayName("Расчет платежа для ипотеки с отличным кредитным рейтингом")
