@@ -7,8 +7,6 @@ public class ForEachLoopExample {
             for (String name : names) {
                 System.out.println(name);
             }
-
-
         }
     }
 
